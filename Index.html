@@ -5,5 +5,35 @@
     <head>
         <meta charset="UTF-8">
         <title>Gestor de Usuario</title> 
+        <link rel="stylesheet" href="index.css">
     </head>
+
+<body>
+    <div id="button-bar">
+        <button id="button1">Listado de Usuarios</button>
+        <button id="button2">Nuevo Usuario</button>
+        <button id="button3">Editar Usuario</button>
+    </div>
+
+    <script>
+   
+        const button1 = document.getElementById('button1');
+        const button2 = document.getElementById('button2');
+        const button3 = document.getElementById('button3');
+
+        button1.addEventListener('click', function() {
+        console.log('Haz hecho clic en el botón 1');
+        });
+
+        button2.addEventListener('click', function() {
+        console.log('Haz hecho clic en el botón 2');
+        });
+
+        button3.addEventListener('click', function() {
+        console.log('Haz hecho clic en el botón 3');
+        });
+
+    </script>
+
+</body>
 </html>
