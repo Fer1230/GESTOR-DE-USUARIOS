@@ -18,9 +18,42 @@
     font-weight: bold;
     border-radius: 8px;
     transition: 1s all;
-     cursor: pointer;
+    cursor: pointer;
   }
 
   button:hover {
     background-color: #ccc;
   }
+
+  form{
+    margin: 40px;
+  }
+
+  form label, form legend{
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+.input-padron{
+    display: block;
+    margin: 0 0 20px;
+    padding: 5px 15px;
+    width: 25%;
+}
+
+.enviar{
+  top: -0%;
+  left: -0%;
+  transform: translate(-0%, -0%);
+  text-align: center;
+  z-index: 1;
+  margin-right: 20px;
+  background-color: #eaeaea;
+  margin: 40px;
+  padding: 15px 0;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 1s all;
+  cursor: pointer;
+}

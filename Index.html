@@ -21,12 +21,50 @@
             <h1 id="titulo"> Aqui se debe mostrar el nombre </h1>
         </article>
         <section id="formulario">
-            <span> Aqui Va el Formulario. </span> 
+
+            <form>
+                
+                <label for="nombres"></label>Nombres</label>
+                <input type="text" class="input-padron" required >
+
+                <label for="apellidopaterno"></label>Apellido Paterno</label>
+                <input type="text" class="input-padron" required >
+
+                <label for="apellidomaterno"></label>Apellido Materno</label>
+                <input type="text" class="input-padron" required >
+
+                <label for="fechadenacimiento"></label>Fecha de Nacimiento</label>
+                <input type="text" class="input-padron" required placeholder="00/00/0000">
+
+                <label for="contraseña"></label>Contraseña</label>
+                <input type="text" class="input-padron" required placeholder="XXXXXX">
+
+                <label for="confirmarcontraseña"></label>Confirmar Contraseña</label>
+                <input type="text" class="input-padron" required placeholder="XXXXXX">
+
+                <label for="estadocivil"></label>Estado Civil</label>
+                <input type="text" class="input-padron" required >
+
+                <fieldset>
+
+                    <legend>¿Sexo?</legend>
+
+                    <label for="soltero"><input type="radio" name="contacto" value="soltero" id="radio-soltero">Soltero</label>
+                    <label for="radio-casado"><input type="radio" name="contacto" value="casado" id="radio-casado">Casado</label>
+
+                </fieldset>
+
+                <input type="submit" value="Crear Usuario" class="enviar">
+
+            </form>
+
         </section>
     </main>
 
     <script>
         const titulo=document.getElementById("titulo");
+        const formulario= document.getElementById("formulario");
+
         const button1 = document.getElementById('button1');
         const button2 = document.getElementById('button2');
         const button3 = document.getElementById('button3');
@@ -42,6 +80,8 @@
         button3.addEventListener('click', function() {
             titulo.textContent="Editar Usuario";
         });
+
+       
 
     </script>
 
