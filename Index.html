@@ -9,11 +9,13 @@
     </head>
 
 <body>
-    <div id="button-bar">
-        <button id="button1">Listado de Usuarios</button>
-        <button id="button2">Nuevo Usuario</button>
-        <button id="button3">Editar Usuario</button>
-    </div>
+    <nav id="button-bar">
+        <ul>
+            <button id="button1">Listado de Usuarios</button>
+            <button id="button2">Nuevo Usuario</button>
+            <button id="button3">Editar Usuario</button>
+        </ul>
+    </nav>
     <main>
         <article> 
             <h1 id="titulo"> Aqui se debe mostrar el nombre </h1>
@@ -21,21 +23,21 @@
     </main>
 
     <script>
-   
+        const titulo=document.getElementById("titulo");
         const button1 = document.getElementById('button1');
         const button2 = document.getElementById('button2');
         const button3 = document.getElementById('button3');
 
         button1.addEventListener('click', function() {
-        console.log('Haz hecho clic en el botón 1');
+            titulo.textContent="Listado de Usuario";
         });
 
         button2.addEventListener('click', function() {
-        console.log('Haz hecho clic en el botón 2');
+            titulo.textContent="Nuevo Usuario";
         });
 
         button3.addEventListener('click', function() {
-        console.log('Haz hecho clic en el botón 3');
+            titulo.textContent="Editar Usuario";
         });
 
     </script>
