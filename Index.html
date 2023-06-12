@@ -34,23 +34,29 @@
                 <input type="text" class="input-padron" required >
 
                 <label for="fechadenacimiento"></label>Fecha de Nacimiento</label>
-                <input type="text" class="input-padron" required placeholder="00/00/0000">
+                <input type="text" id="numeros" class="input-padron" required placeholder="00/00/0000">
 
-                <label for="contraseña"></label>Contraseña</label>
-                <input type="text" class="input-padron" required placeholder="XXXXXX">
-
-                <label for="confirmarcontraseña"></label>Confirmar Contraseña</label>
-                <input type="text" class="input-padron" required placeholder="XXXXXX">
-
-                <label for="estadocivil"></label>Estado Civil</label>
+                <label for="usarnombre"></label>Contraseña</label>
                 <input type="text" class="input-padron" required >
 
-                <fieldset>
+                <label for="confirmarcontraseña"></label>Confirmar Contraseña</label>
+                <input type="password" class="input-padron" required >
+
+                <legend>¿Estado Civil?</legend>
+                    <select>
+                        <option>Soltero</option>
+                        <option>Casado</option>
+                        <option>Divorciado</option>
+                        <option>Viudo</option>
+                        <option>Union Libre</option>
+                    </select>
+
+                <fieldset class="confirma">
 
                     <legend>¿Sexo?</legend>
 
-                    <label for="soltero"><input type="radio" name="contacto" value="soltero" id="radio-soltero">Soltero</label>
-                    <label for="radio-casado"><input type="radio" name="contacto" value="casado" id="radio-casado">Casado</label>
+                    <label for="soltero"><input type="radio" name="contacto" value="hombre" id="radio-soltero">Hombre</label>
+                    <label for="radio-casado"><input type="radio" name="contacto" value="mujer" id="radio-casado">Mujer</label>
 
                 </fieldset>
 
@@ -81,7 +87,17 @@
             titulo.textContent="Editar Usuario";
         });
 
-       
+        var inputNumerico = document.getElementById('numeros');
+
+        function permitirSoloNumeros(event) {
+        var keyCode = event.which ? event.which : event.keyCode;
+        var tecla = String.fromCharCode(keyCode);
+
+         if (!/^\d+$/.test(tecla)) {
+         event.preventDefault();
+        }};
+
+        inputNumerico.addEventListener('keypress', permitirSoloNumeros);
 
     </script>
 
