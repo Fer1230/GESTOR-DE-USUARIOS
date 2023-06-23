@@ -22,41 +22,44 @@
         </article>
         <section id="formulario">
 
-            <form>
+            <form onsubmit="checkForm(this)">
                 
-                <label for="nombres"></label>Nombres</label>
-                <input type="text" class="input-padron" required >
+                <label for="nombres">Nombres</label>
+                <input type="text" class="input-padron" name="nombres" required >
 
-                <label for="apellidopaterno"></label>Apellido Paterno</label>
-                <input type="text" class="input-padron" required >
+                <label for="apellidoPaterno">Apellido Paterno</label>
+                <input type="text" class="input-padron" name="apellidoPaterno" required >
 
-                <label for="apellidomaterno"></label>Apellido Materno</label>
-                <input type="text" class="input-padron" required >
+                <label for="apellidoMaterno">Apellido Materno</label>
+                <input type="text" class="input-padron" name="apellidoMaterno" required >
 
-                <label for="fechadenacimiento"></label>Fecha de Nacimiento</label>
-                <input type="text" id="numeros" class="input-padron" required placeholder="00/00/0000">
+                <label for="fechadeNacimiento">Fecha de Nacimiento</label>
+                <input type="date" class="input-padron" name="fechadeNacimiento" required>
 
-                <label for="usarnombre"></label>Contraseña</label>
-                <input type="text" class="input-padron" required >
+                <label for="contraseña">Contraseña</label>
+                <input type="password" class="input-padron" name="contraseña" required >
 
-                <label for="confirmarcontraseña"></label>Confirmar Contraseña</label>
-                <input type="password" class="input-padron" required >
+                <label for="confirmarContraseña">Confirmar Contraseña</label>
+                <input type="password" class="input-padron" name="confirmarContraseña" required>
 
-                <legend>¿Estado Civil?</legend>
-                    <select>
-                        <option>Soltero</option>
-                        <option>Casado</option>
-                        <option>Divorciado</option>
-                        <option>Viudo</option>
-                        <option>Union Libre</option>
-                    </select>
+                <label for="estadoCivil">¿Estado Civil?</label>
+                <select name="estadoCivil">
+                    <option value="">Seleccione una Opcion</option>
+                    <option value="soltero">Soltero</option>
+                    <option value="casado">Casado</option>
+                    <option value="divorciado">Divorciado</option>
+                    <option value="viudo">Viudo</option>
+                    <option value="unionLibre">Union Libre</option>
+                </select>
 
                 <fieldset class="confirma">
 
-                    <legend>¿Sexo?</legend>
+                    <p>Genero:</p>
 
-                    <label for="soltero"><input type="radio" name="contacto" value="hombre" id="radio-soltero">Hombre</label>
-                    <label for="radio-casado"><input type="radio" name="contacto" value="mujer" id="radio-casado">Mujer</label>
+                    <label for="masculino">
+                    <input type="radio" name="masculino" value="masculino">Hombre</label>
+                    <label for="femenino">
+                    <input type="radio" name="femenino" value="femenino">Mujer</label>
 
                 </fieldset>
 
@@ -85,20 +88,29 @@
 
         button3.addEventListener('click', function() {
             titulo.textContent="Editar Usuario";
-        });
+        });  
+        
+        function checkForm(form){
+            console.log("datos de formulario", form);
+            if(form.nombres.value == "") {
+                alert("Error: Debe escribir su Nombre!");
+                form.nombres.focus();
+                return false;
+            }
 
-        var inputNumerico = document.getElementById('numeros');
-
-        function permitirSoloNumeros(event) {
-        var keyCode = event.which ? event.which : event.keyCode;
-        var tecla = String.fromCharCode(keyCode);
-
-         if (!/^\d+$/.test(tecla)) {
-         event.preventDefault();
-        }};
-
-        inputNumerico.addEventListener('keypress', permitirSoloNumeros);
-
+            if(form.contraseña.value != "" && form.contraseña.value == form.confirmarcontraseña.value) {
+                if(!checkPassword(form.contraseña.value)) {
+                alert("La contraseña no es valida!");
+                form.contraseña.focus();
+                return false;
+            }
+            } else {
+                alert("Error: las contraseñas no coinciden!");
+                form.contraseña.focus();
+                return false;
+            }
+            return false;
+        }
     </script>
 
 </body>
