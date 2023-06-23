@@ -22,7 +22,7 @@
         </article>
         <section id="formulario">
 
-            <form onsubmit="checkForm(this)">
+            <form onsubmit="checkForm(event, this)">
                 
                 <label for="nombres">Nombres</label>
                 <input type="text" class="input-padron" name="nombres" required >
@@ -90,8 +90,10 @@
             titulo.textContent="Editar Usuario";
         });  
         
-        function checkForm(form){
-            console.log("datos de formulario", form);
+        function checkForm(event, form){
+            event.preventDefault();
+            console.log("datos de formulario", form);  // Todo el Formulario
+            console.log("Nombres", form.nombres.value); // Solo el valor del input "nombres"
             if(form.nombres.value == "") {
                 alert("Error: Debe escribir su Nombre!");
                 form.nombres.focus();
