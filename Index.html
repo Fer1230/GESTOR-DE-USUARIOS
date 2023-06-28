@@ -24,23 +24,23 @@
 
             <form onsubmit="checkForm(event, this)">
                 
-                <label for="nombres">Nombres</label>
+                <label for="nombres">Nombre:</label>
                 <input type="text" class="input-padron" name="nombres" required >
 
                 <label for="apellidoPaterno">Apellido Paterno</label>
                 <input type="text" class="input-padron" name="apellidoPaterno" required >
 
                 <label for="apellidoMaterno">Apellido Materno</label>
-                <input type="text" class="input-padron" name="apellidoMaterno" required >
+                <input type="text" class="input-padron" name="apellidoMaterno" >
 
                 <label for="fechadeNacimiento">Fecha de Nacimiento</label>
-                <input type="date" class="input-padron" name="fechadeNacimiento" required>
+                <input type="date" class="input-padron" name="fechadeNacimiento" required >
 
                 <label for="contraseña">Contraseña</label>
                 <input type="password" class="input-padron" name="contraseña" required >
 
                 <label for="confirmarContraseña">Confirmar Contraseña</label>
-                <input type="password" class="input-padron" name="confirmarContraseña" required>
+                <input type="password" class="input-padron" name="confirmarContraseña" required >
 
                 <label for="estadoCivil">¿Estado Civil?</label>
                 <select name="estadoCivil">
@@ -57,9 +57,10 @@
                     <p>Genero:</p>
 
                     <label for="masculino">
-                    <input type="radio" name="masculino" value="masculino">Hombre</label>
+                    <input type="radio" id="masculino" name="genero" value="masculino">Masculino</label>
+
                     <label for="femenino">
-                    <input type="radio" name="femenino" value="femenino">Mujer</label>
+                    <input type="radio" id="femenino" name="genero" value="femenino">Femenino</label>
 
                 </fieldset>
 
@@ -92,27 +93,59 @@
         
         function checkForm(event, form){
             event.preventDefault();
+
             console.log("datos de formulario", form);  // Todo el Formulario
             console.log("Nombres", form.nombres.value); // Solo el valor del input "nombres"
+            console.log("Apellido Paterno", form.apellidoPaterno.value);
+            console.log("Apellido Materno", form.apellidoMaterno.value);
+            console.log("Fecha de Nacimiento", form.fechadeNacimiento.value);
+            console.log("Estado Civil", form.estadoCivil.value);
+            console.log("Genero", form.genero.value);
+
             if(form.nombres.value == "") {
                 alert("Error: Debe escribir su Nombre!");
                 form.nombres.focus();
                 return false;
             }
+            
+            if(form.nombres.value.length < 3 ) {
+                alert("Error:Nombre Invalido!");
+                form.nombres.focus();
+                return false;
+            }
 
-            if(form.contraseña.value != "" && form.contraseña.value == form.confirmarcontraseña.value) {
-                if(!checkPassword(form.contraseña.value)) {
+            if(form.contraseña.value.length < 8 ) {
                 alert("La contraseña no es valida!");
                 form.contraseña.focus();
                 return false;
             }
-            } else {
-                alert("Error: las contraseñas no coinciden!");
-                form.contraseña.focus();
+          
+            if(form.confirmarContraseña.value  !== form.contraseña.value ){
+                alert("La Contraseña no coincide");
+                form.confirmarContraseña.focus();
                 return false;
             }
-            return false;
+
+            if(form.apellidoPaterno.value.length < 3 ) {
+                alert("Error:El Apellido Paterno es Invalido!");
+                form.nombres.focus();
+                return false;
+            }
+
+            if(form.estadoCivil.value === "viudo" ) {
+                alert("No puedes ingresar por tu estado Civil");
+                form.estadoCivil.focus();
+                return false;
+            }
+
+            if(form.fechadeNacimiento.value >= 2005 ) {
+                alert("No eres mayor de Edad");
+                form.fechadeNacimiento.focus();
+                return false;
+            }
+            
         }
+
     </script>
 
 </body>
