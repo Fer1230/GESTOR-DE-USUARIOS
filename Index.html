@@ -81,7 +81,9 @@
 
         const fechaSeleccionada = new Date(form.fechadeNacimiento.value);
         const anioSeleccionado = fechaSeleccionada.getFullYear();
-        
+
+        const fechaActual = new Date();
+        let anioActual = fechaActual.getFullYear();
 
         button1.addEventListener('click', function() {
             titulo.textContent="Listado de Usuario";
@@ -142,8 +144,10 @@
                 return false;
             }
 
-            if( fechaSeleccionada > anioSeleccionado.getFullYear() ); {
-                alert("No puedes ingresar ");
+            // si 2023-18 = 2005 esto es menor que año seleccionado (1992) SI entones entra
+            // si 2023-18 = 2005 esto es menor que año seleccionado (2006) NO entones no entra
+            if( (anioActual-18) < anioSeleccionado.getFullYear() ); {
+                alert("No puedes ingresar eres menor de Edad ");
                 form.fechadeNacimiento.focus();
                 return false;
            
