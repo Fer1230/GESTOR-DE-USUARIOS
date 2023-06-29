@@ -79,6 +79,10 @@
         const button2 = document.getElementById('button2');
         const button3 = document.getElementById('button3');
 
+        const fechaSeleccionada = new Date(form.fechadeNacimiento.value);
+        const anioSeleccionado = fechaSeleccionada.getFullYear();
+        
+
         button1.addEventListener('click', function() {
             titulo.textContent="Listado de Usuario";
         });
@@ -138,12 +142,12 @@
                 return false;
             }
 
-            if(form.fechadeNacimiento.value >= 2005 ) {
-                alert("No eres mayor de Edad");
+            if( fechaSeleccionada > anioSeleccionado.getFullYear() ); {
+                alert("No puedes ingresar ");
                 form.fechadeNacimiento.focus();
                 return false;
+           
             }
-            
         }
 
     </script>
